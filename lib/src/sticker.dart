@@ -75,6 +75,7 @@ class CreateLaoRoadTaxSticker extends LaoRoadTaxSticker {
       );
       drawSticker.drawLicenseType(data.licenseTypeName);
       drawSticker.drawTxDate(data.time);
+      drawSticker.drawAmount(data.amount);
 
       // ------- column 2 ------- //
       drawSticker.drawYear(data.year);
