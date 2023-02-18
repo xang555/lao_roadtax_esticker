@@ -27,10 +27,10 @@ class DrawRoadTaxSticker extends RoadTaxDrawer {
     required this.canvas,
     required this.refactorX,
     required this.refactorY,
-  })  : _rectWidth = calScaleX(x: 265, refactor: refactorX),
-        _reactHight = calScaleX(x: 126, refactor: refactorY),
-        _normalFont = calScaleX(x: 30, refactor: refactorY),
-        _maxWidthTxDateAndAmount = calScaleX(x: 400, refactor: refactorX);
+  })  : _rectWidth = calScaleValue(x: 265, refactor: refactorX),
+        _reactHight = calScaleValue(x: 126, refactor: refactorY),
+        _normalFont = calScaleValue(x: 30, refactor: refactorY),
+        _maxWidthTxDateAndAmount = calScaleValue(x: 400, refactor: refactorX);
 
   // rect conner point when draw license plate
   late Offset _rectConner;
@@ -87,8 +87,8 @@ class DrawRoadTaxSticker extends RoadTaxDrawer {
     amountTextPainter.paint(
       canvas,
       Offset(
-        calScaleX(x: 59, refactor: refactorX),
-        calScaleX(x: (370 + 42 * 2), refactor: refactorY),
+        calScaleValue(x: 59, refactor: refactorX),
+        calScaleValue(x: (370 + 42 * 2), refactor: refactorY),
       ),
     );
   }
@@ -112,8 +112,8 @@ class DrawRoadTaxSticker extends RoadTaxDrawer {
   Future<void> drawBarcode(String data) async {
     try {
       final image = img.Image(
-        calScaleX(x: 282, refactor: refactorX).toInt(),
-        calScaleX(x: 90, refactor: refactorY).toInt(),
+        calScaleValue(x: 282, refactor: refactorX).toInt(),
+        calScaleValue(x: 90, refactor: refactorY).toInt(),
       );
 
       img.fill(image, img.getColor(0, 0, 0, 0));
@@ -134,9 +134,9 @@ class DrawRoadTaxSticker extends RoadTaxDrawer {
       canvas.drawImage(
         frame.image,
         Offset(
-          calScaleX(x: 727, refactor: refactorX),
-          (calScaleX(x: 124, refactor: refactorX) + _rectConner.dy) +
-              calScaleX(x: 24, refactor: refactorY),
+          calScaleValue(x: 727, refactor: refactorX),
+          ((calScaleValue(x: 124, refactor: refactorY) + _rectConner.dy) +
+              calScaleValue(x: 24, refactor: refactorY)),
         ),
         Paint(),
       );
@@ -151,7 +151,7 @@ class DrawRoadTaxSticker extends RoadTaxDrawer {
       text: TextSpan(
         text: 'ເລກຖັງ: $chassisNumber',
         style: textStyle.copyWith(
-          fontSize: _normalFont - calScaleX(x: 5, refactor: refactorY),
+          fontSize: _normalFont - calScaleValue(x: 5, refactor: refactorY),
         ),
       ),
       textDirection: TextDirection.ltr,
@@ -160,8 +160,8 @@ class DrawRoadTaxSticker extends RoadTaxDrawer {
     chassisNumberTextPainter.paint(
       canvas,
       Offset(
-        calScaleX(x: 377, refactor: refactorX),
-        calScaleX(x: ((332 + 75) + 50), refactor: refactorY),
+        calScaleValue(x: 377, refactor: refactorX),
+        calScaleValue(x: ((332 + 75) + 50), refactor: refactorY),
       ),
     );
   }
@@ -191,8 +191,8 @@ class DrawRoadTaxSticker extends RoadTaxDrawer {
     engineDisplacementTextPainter.paint(
       canvas,
       Offset(
-        calScaleX(x: 490, refactor: refactorX),
-        calScaleX(x: (332 + 75), refactor: refactorY),
+        calScaleValue(x: 490, refactor: refactorX),
+        calScaleValue(x: (332 + 75), refactor: refactorY),
       ),
     );
   }
@@ -203,8 +203,8 @@ class DrawRoadTaxSticker extends RoadTaxDrawer {
     required String provinceName,
   }) {
     final recCenterOffset = Offset(
-      calScaleX(x: 197, refactor: refactorX),
-      calScaleX(x: 300, refactor: refactorY),
+      calScaleValue(x: 197, refactor: refactorX),
+      calScaleValue(x: 300, refactor: refactorY),
     );
 
     // rect conner offset
@@ -218,10 +218,10 @@ class DrawRoadTaxSticker extends RoadTaxDrawer {
     final rRect = RRect.fromRectAndRadius(
       Rect.fromCenter(
           center: recCenterOffset, width: _rectWidth, height: _reactHight),
-      const Radius.circular(15),
+      Radius.circular(calScaleValue(x: 15, refactor: refactorX)),
     );
     final rRectPaint = Paint()
-      ..strokeWidth = 4
+      ..strokeWidth = calScaleValue(x: 4, refactor: refactorY)
       ..style = PaintingStyle.stroke;
     canvas.drawRRect(rRect, rRectPaint);
 
@@ -230,7 +230,7 @@ class DrawRoadTaxSticker extends RoadTaxDrawer {
       text: TextSpan(
         text: provinceName,
         style: textStyle.copyWith(
-          fontSize: calScaleX(x: 32, refactor: refactorY),
+          fontSize: calScaleValue(x: 32, refactor: refactorY),
         ),
       ),
       textDirection: TextDirection.ltr,
@@ -246,11 +246,11 @@ class DrawRoadTaxSticker extends RoadTaxDrawer {
       canvas,
       Offset(
         dXCenter(
-          dx: calScaleX(x: 76, refactor: refactorX),
+          dx: calScaleValue(x: 76, refactor: refactorX),
           maxLayoutWidth: _rectWidth,
           paintWidth: provinceTextPainter.width,
         ),
-        calScaleX(x: 245, refactor: refactorY),
+        calScaleValue(x: 245, refactor: refactorY),
       ),
     );
 
@@ -259,7 +259,7 @@ class DrawRoadTaxSticker extends RoadTaxDrawer {
       text: TextSpan(
         text: licenseNumber.toLicensePlateNumber(),
         style: textStyle.copyWith(
-          fontSize: calScaleX(x: 48, refactor: refactorY),
+          fontSize: calScaleValue(x: 48, refactor: refactorY),
           fontWeight: FontWeight.bold,
         ),
       ),
@@ -274,11 +274,11 @@ class DrawRoadTaxSticker extends RoadTaxDrawer {
       canvas,
       Offset(
         dXCenter(
-          dx: calScaleX(x: 76, refactor: refactorX),
+          dx: calScaleValue(x: 76, refactor: refactorX),
           maxLayoutWidth: _rectWidth,
           paintWidth: licenseTextPainter.width,
         ),
-        calScaleX(x: 295, refactor: refactorY),
+        calScaleValue(x: 295, refactor: refactorY),
       ),
     );
   }
@@ -303,11 +303,11 @@ class DrawRoadTaxSticker extends RoadTaxDrawer {
       canvas,
       Offset(
         dXCenter(
-          dx: calScaleX(x: 62, refactor: refactorX),
+          dx: calScaleValue(x: 62, refactor: refactorX),
           maxLayoutWidth: _rectWidth,
           paintWidth: licenseTypeTextPainter.width,
         ),
-        calScaleX(x: 370, refactor: refactorY),
+        calScaleValue(x: 370, refactor: refactorY),
       ),
     );
   }
@@ -320,11 +320,11 @@ class DrawRoadTaxSticker extends RoadTaxDrawer {
         version: QrVersions.auto,
       );
       final qImageData = await pq.toImage(
-        calScaleX(x: 120, refactor: refactorX),
+        calScaleValue(x: 120, refactor: refactorX),
       );
       canvas.drawImage(
         qImageData,
-        Offset(calScaleX(x: 804, refactor: refactorX), _rectConner.dy),
+        Offset(calScaleValue(x: 804, refactor: refactorX), _rectConner.dy),
         Paint(),
       );
     } catch (e) {
@@ -351,8 +351,8 @@ class DrawRoadTaxSticker extends RoadTaxDrawer {
     dateTextPainter.paint(
       canvas,
       Offset(
-        calScaleX(x: 59, refactor: refactorX),
-        calScaleX(x: (370 + 42), refactor: refactorY),
+        calScaleValue(x: 59, refactor: refactorX),
+        calScaleValue(x: (370 + 42), refactor: refactorY),
       ),
     );
   }
@@ -364,7 +364,7 @@ class DrawRoadTaxSticker extends RoadTaxDrawer {
       text: TextSpan(
         text: String.fromCharCode(icon.codePoint),
         style: textStyle.copyWith(
-          fontSize: calScaleX(x: 100, refactor: refactorY),
+          fontSize: calScaleValue(x: 100, refactor: refactorY),
           fontFamily: icon.fontFamily,
           package: icon.fontPackage,
         ),
@@ -375,8 +375,8 @@ class DrawRoadTaxSticker extends RoadTaxDrawer {
     iconCarTextPainter.paint(
       canvas,
       Offset(
-        calScaleX(x: 490.0, refactor: refactorX),
-        calScaleX(x: 330, refactor: refactorY),
+        calScaleValue(x: 490.0, refactor: refactorX),
+        calScaleValue(x: 330, refactor: refactorY),
       ),
     );
   }
@@ -384,8 +384,8 @@ class DrawRoadTaxSticker extends RoadTaxDrawer {
   @override
   void drawVehicleName(String vehicleName) {
     try {
-      final fontSize = calScaleX(x: 42, refactor: refactorY);
-      final maxWidth = calScaleX(x: 362, refactor: refactorX);
+      final fontSize = calScaleValue(x: 42, refactor: refactorY);
+      final maxWidth = calScaleValue(x: 362, refactor: refactorX);
 
       final carModelTextPainter = TextPainter(
         text: TextSpan(
@@ -406,13 +406,13 @@ class DrawRoadTaxSticker extends RoadTaxDrawer {
         canvas,
         Offset(
           dXCenter(
-            dx: calScaleX(x: 32, refactor: refactorX),
+            dx: calScaleValue(x: 32, refactor: refactorX),
             maxLayoutWidth: maxWidth,
             paintWidth: carModelTextPainter.width,
           ),
           dYCenter(
-            dy: calScaleX(x: 175, refactor: refactorY),
-            maxLayoutHight: calScaleX(x: 62, refactor: refactorY),
+            dy: calScaleValue(x: 175, refactor: refactorY),
+            maxLayoutHight: calScaleValue(x: 62, refactor: refactorY),
             paintHight: carModelTextPainter.height,
           ),
         ),
@@ -424,13 +424,13 @@ class DrawRoadTaxSticker extends RoadTaxDrawer {
 
   @override
   void drawYear(String year) {
-    final maxWidthYear = calScaleX(x: 434, refactor: refactorX);
+    final maxWidthYear = calScaleValue(x: 434, refactor: refactorX);
 
     final yearTextPainter = TextPainter(
       text: TextSpan(
         text: year,
         style: textStyle.copyWith(
-          fontSize: calScaleX(x: 132, refactor: refactorY),
+          fontSize: calScaleValue(x: 132, refactor: refactorY),
           fontWeight: FontWeight.bold,
         ),
       ),
@@ -444,7 +444,7 @@ class DrawRoadTaxSticker extends RoadTaxDrawer {
       canvas,
       Offset(
         dXCenter(
-          dx: calScaleX(x: 342, refactor: refactorX),
+          dx: calScaleValue(x: 342, refactor: refactorX),
           maxLayoutWidth: maxWidthYear,
           paintWidth: yearTextPainter.width,
         ),

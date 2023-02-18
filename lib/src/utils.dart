@@ -1,7 +1,5 @@
 import 'package:flutter/services.dart';
 
-import 'const.dart';
-
 /// calculate dx alight center point
 double dXCenter({
   required double dx,
@@ -33,5 +31,6 @@ Offset offsetConnerRect({
 double calRefactor({required double newVal, required double originVal}) =>
     (newVal / originVal);
 
-/// cal scale x value
-double calScaleX({required double x, required double refactor}) => refactor * x;
+/// cal scale value
+double calScaleValue({required double x, required double refactor}) =>
+    refactor * x;

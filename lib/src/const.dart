@@ -4,6 +4,6 @@ const baseTemplateImageWidth = 1063.0;
 const baseTemplateImageHight = 531.0;
 
 const textStyle = TextStyle(
-  color: Color.fromRGBO(0, 0, 0, 0.283),
+  color: Color.fromRGBO(0, 0, 0, 1.0),
   fontFamily: "PhetsarathOT",
 );
