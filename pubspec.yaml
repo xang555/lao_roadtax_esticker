@@ -1,0 +1,37 @@
+name: lao_roadtax_esticker
+description: A Flutter package for create lao road tax sticker.
+version: 1.0.0
+homepage: "https://laoitdev.com"
+
+environment:
+  sdk: '>=2.19.2 <3.0.0'
+  flutter: ">=1.17.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  qr_flutter: ^4.0.0
+  barcode_image: ^2.0.0
+  image: ^3.3.0
+  intl: ^0.18.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+
+
+# The following section is specific to Flutter packages.
+flutter:
+
+  # To add assets to your package, add an assets section, like this:
+  assets:
+    - assets/
+
+  fonts:
+    - family: PhetsarathOT
+      fonts:
+        - asset: fonts/Phetsarath_OT.ttf
+    - family:  RoadTaxIcons
+      fonts:
+       - asset: fonts/RoadTaxIcons.ttf
