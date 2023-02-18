@@ -56,7 +56,10 @@ class CreateLaoRoadTaxSticker extends LaoRoadTaxSticker {
       // draw sticker
       final RoadTaxDrawer drawSticker = DrawRoadTaxSticker(
         canvas: canvas,
-        refactor: calRefactor(width: imageWidth, hight: imageHight),
+        refactorX:
+            calRefactor(newVal: imageWidth, originVal: baseTemplateImageWidth),
+        refactorY:
+            calRefactor(newVal: imageHight, originVal: baseTemplateImageHight),
       );
 
       // draw background image
