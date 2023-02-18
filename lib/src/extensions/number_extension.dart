@@ -3,9 +3,10 @@ import 'package:intl/intl.dart';
 /// number formate extension
 extension NumberExtension on String {
   /// formate amount
-  String toAmount([String pattern = '#,##0', String locale = "lo_LA"]) {
+  String toAmount([String pattern = '#,##0', String? locale]) {
     var f = NumberFormat(pattern, locale);
-    return f.format(this);
+    final amountNumber = double.tryParse(this) ?? 0.0;
+    return f.format(amountNumber);
   }
 
   /// Format license plate number from `aa1111` to `aa 1111`.
