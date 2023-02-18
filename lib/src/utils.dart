@@ -31,7 +31,7 @@ Offset offsetConnerRect({
 
 /// cal refactor
 double calRefactor({required double width, required double hight}) =>
-    (width / hight);
+    (hight / width);
 
 /// cal scale x value
 double calScaleX({required double x, required double refactor}) =>
