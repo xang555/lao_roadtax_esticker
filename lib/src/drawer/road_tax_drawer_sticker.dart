@@ -42,7 +42,7 @@ class DrawRoadTaxSticker extends RoadTaxDrawer {
   /// load image from assets
   ///
   /// throw Exception
-  Future<ui.Image> _loadImage<T>(T image, [int? width, int? hight]) async {
+  Future<ui.Image> _loadImage<T>(T image) async {
     try {
       ByteData data;
 
@@ -56,11 +56,7 @@ class DrawRoadTaxSticker extends RoadTaxDrawer {
         );
       }
 
-      final codec = await ui.instantiateImageCodec(
-        data.buffer.asUint8List(),
-        targetHeight: hight,
-        targetWidth: width,
-      );
+      final codec = await ui.instantiateImageCodec(data.buffer.asUint8List());
       var frame = await codec.getNextFrame();
       return frame.image;
     } catch (e) {

@@ -20,31 +20,26 @@ class CreateLaoRoadTaxSticker extends LaoRoadTaxSticker {
   /// road tax template path for draw over this template image
   final ByteData? roadTaxTemplateImage;
 
-  /// template width
-  ///
-  /// this is real template width in pixel
-  final double? width;
-
-  /// template hight
-  ///
-  /// this is real template hight in pixel
-  final double? hight;
-
   /// create sticker
   ///
-  /// if `roadTaxTemplateImage` is not null `width` and `hight` chose set value
-  /// `width` and `hight` can not set to zero
-  CreateLaoRoadTaxSticker({
-    this.roadTaxTemplateImage,
-    this.width,
-    this.hight,
-  });
+  /// [roadTaxTemplateImage] is road tax template image
+  CreateLaoRoadTaxSticker({this.roadTaxTemplateImage});
 
   @override
   Future<ByteData?> createSticker(RoadTaxData data) async {
     try {
-      final imageWidth = width ?? baseTemplateImageWidth;
-      final imageHight = hight ?? baseTemplateImageHight;
+      var imageWidth = baseTemplateImageWidth;
+      var imageHight = baseTemplateImageHight;
+
+      if (roadTaxTemplateImage != null) {
+        final buffer = await ui.ImmutableBuffer.fromUint8List(
+          roadTaxTemplateImage!.buffer.asUint8List(),
+        );
+        final descriptor = await ui.ImageDescriptor.encoded(buffer);
+
+        imageWidth = descriptor.width.toDouble();
+        imageHight = descriptor.height.toDouble();
+      }
 
       final recorder = ui.PictureRecorder();
       final canvas = Canvas(
