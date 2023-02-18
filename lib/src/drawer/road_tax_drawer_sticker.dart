@@ -111,10 +111,10 @@ class DrawRoadTaxSticker extends RoadTaxDrawer {
   @override
   Future<void> drawBarcode(String data) async {
     try {
-      final image = img.Image(
-        calScaleValue(x: 282, refactor: refactorX).toInt(),
-        calScaleValue(x: 90, refactor: refactorY).toInt(),
-      );
+      final barcodeWidth = calScaleValue(x: 282, refactor: refactorX).toInt();
+      final barcodeHight = calScaleValue(x: 70, refactor: refactorY).toInt();
+
+      final image = img.Image(barcodeWidth, barcodeHight);
 
       img.fill(image, img.getColor(0, 0, 0, 0));
 
@@ -122,7 +122,6 @@ class DrawRoadTaxSticker extends RoadTaxDrawer {
         image,
         barcode_img.Barcode.code128(),
         data,
-        font: img.arial_24,
       );
 
       final codec = await ui.instantiateImageCodec(
@@ -130,15 +129,43 @@ class DrawRoadTaxSticker extends RoadTaxDrawer {
           img.encodePng(image),
         ),
       );
+
+      final dxBarcode = calScaleValue(x: 727, refactor: refactorX);
+      final dyBarcode =
+          ((calScaleValue(x: 124, refactor: refactorY) + _rectConner.dy) +
+              calScaleValue(x: 24, refactor: refactorY));
+
       var frame = await codec.getNextFrame();
       canvas.drawImage(
         frame.image,
         Offset(
-          calScaleValue(x: 727, refactor: refactorX),
-          ((calScaleValue(x: 124, refactor: refactorY) + _rectConner.dy) +
-              calScaleValue(x: 24, refactor: refactorY)),
+          dxBarcode,
+          dyBarcode,
         ),
         Paint(),
+      );
+
+      // draw barcode text
+      final barcodeTextPainter = TextPainter(
+        text: TextSpan(
+          text: data,
+          style: textStyle.copyWith(
+            fontSize: _normalFont,
+          ),
+        ),
+        textDirection: TextDirection.ltr,
+      );
+      barcodeTextPainter.layout(minWidth: 0, maxWidth: barcodeWidth.toDouble());
+      barcodeTextPainter.paint(
+        canvas,
+        Offset(
+          dXCenter(
+            dx: dxBarcode,
+            maxLayoutWidth: barcodeWidth.toDouble(),
+            paintWidth: barcodeTextPainter.width,
+          ),
+          dyBarcode + calScaleValue(x: 70, refactor: refactorY),
+        ),
       );
     } catch (e) {
       rethrow;
