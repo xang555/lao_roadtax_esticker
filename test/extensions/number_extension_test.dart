@@ -12,4 +12,13 @@ void main() {
       expect("59000.90".toAmount(), equals("59,001"));
     },
   );
+
+  test(
+    "formate string license number",
+    () {
+      expect("ກຍ5678".toLicensePlateNumber(), equals("ກຍ 5678"));
+      expect("ກຍ 5678".toLicensePlateNumber(), equals("ກຍ 5678"));
+      expect("ກຍ           5678".toLicensePlateNumber(), equals("ກຍ 5678"));
+    },
+  );
 }
