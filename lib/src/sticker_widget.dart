@@ -66,6 +66,7 @@ class ToadTaxPainter extends CustomPainter {
       await drawSticker.drawQRcode(data.barcode);
       await drawSticker.drawBarcode(data.barcode);
     } catch (e) {
+      print("error -------> $e");
       final textPaint = TextPainter(
         text: TextSpan(
           text: "Error $e",
@@ -75,6 +76,7 @@ class ToadTaxPainter extends CustomPainter {
         ),
         textDirection: TextDirection.ltr,
       );
+      textPaint.layout(maxWidth: size.width);
       textPaint.paint(canvas, Offset(size.width / 2, size.height / 2));
     }
   }
