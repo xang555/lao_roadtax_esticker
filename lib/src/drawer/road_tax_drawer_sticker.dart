@@ -101,7 +101,7 @@ class DrawRoadTaxSticker extends RoadTaxDrawer {
         baseImage = await _loadImage<ByteData>(byteData);
       } else {
         baseImage = await _loadImage<String>(
-          "packages/lao_roadtax_esticker/assets/stiker_tamplete.png",
+          "packages/lao_roadtax_eticker/assets/stiker_tamplete.png",
         );
       }
       canvas.drawImage(baseImage, const Offset(0.0, 0.0), Paint());
