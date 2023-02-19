@@ -1,7 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter/foundation.dart';
-import 'package:lao_roadtax_esticker/lao_roadtax_eticker.dart';
+import 'package:lao_roadtax_eticker/lao_roadtax_eticker.dart';
 
 void main(List<String> args) async {
   try {
