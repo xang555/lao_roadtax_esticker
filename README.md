@@ -85,7 +85,7 @@ if you need to save sticker image to gallery please using [gallery_saver](https:
         await imagePath.writeAsBytes(imageByte.buffer.asUint8List());
 
         final saveImage =
-            await GallerySaver.saveImage(imagePath.path, albumName: "JDB YES");
+            await GallerySaver.saveImage(imagePath.path, albumName: "Road Tax");
 
         // delete image from temporary directory
         await imagePath.delete();
