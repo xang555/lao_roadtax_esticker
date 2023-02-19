@@ -1,5 +1,7 @@
 # lao_roadtax_esticker
 
+[![Flutter](https://github.com/xang555/lao_roadtax_esticker/actions/workflows/dart.yml/badge.svg)](https://github.com/xang555/lao_roadtax_esticker/actions/workflows/dart.yml)
+
 Flutter package create lao road tax E-sticker
 
 ![sticker](images/sticker.jpeg)
