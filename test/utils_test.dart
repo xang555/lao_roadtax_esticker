@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:lao_roadtax_esticker/src/utils.dart';
+import 'package:lao_roadtax_eticker/src/utils.dart';
 
 void main() {
   test(
