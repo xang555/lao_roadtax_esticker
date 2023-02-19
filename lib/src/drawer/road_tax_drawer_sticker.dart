@@ -94,7 +94,7 @@ class DrawRoadTaxSticker extends RoadTaxDrawer {
   }
 
   @override
-  Future<void> drawBackgroundImage(ByteData? byteData) async {
+  Future<void> drawBackgroundImage([ByteData? byteData]) async {
     try {
       ui.Image baseImage;
       if (byteData != null) {

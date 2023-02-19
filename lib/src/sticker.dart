@@ -17,13 +17,13 @@ abstract class LaoRoadTaxSticker {
 }
 
 class CreateLaoRoadTaxSticker extends LaoRoadTaxSticker {
-  /// road tax template path for draw over this template image
-  final ByteData? roadTaxTemplateImage;
+  /// road tax template path for draw over this background template image
+  final ByteData? roadTaxBackgroundTemplateImage;
 
   /// create sticker
   ///
-  /// [roadTaxTemplateImage] is road tax template image
-  CreateLaoRoadTaxSticker({this.roadTaxTemplateImage});
+  /// [roadTaxBackgroundTemplateImage] is road tax background template image
+  CreateLaoRoadTaxSticker({this.roadTaxBackgroundTemplateImage});
 
   @override
   Future<ByteData?> createSticker(RoadTaxData data) async {
@@ -31,9 +31,9 @@ class CreateLaoRoadTaxSticker extends LaoRoadTaxSticker {
       var imageWidth = baseTemplateImageWidth;
       var imageHight = baseTemplateImageHight;
 
-      if (roadTaxTemplateImage != null) {
+      if (roadTaxBackgroundTemplateImage != null) {
         final buffer = await ui.ImmutableBuffer.fromUint8List(
-          roadTaxTemplateImage!.buffer.asUint8List(),
+          roadTaxBackgroundTemplateImage!.buffer.asUint8List(),
         );
         final descriptor = await ui.ImageDescriptor.encoded(buffer);
 
@@ -63,7 +63,7 @@ class CreateLaoRoadTaxSticker extends LaoRoadTaxSticker {
       );
 
       // draw background image
-      await drawSticker.drawBackgroundImage(roadTaxTemplateImage);
+      await drawSticker.drawBackgroundImage(roadTaxBackgroundTemplateImage);
 
       // ------- column 1 ------- //
       drawSticker.drawVehicleName(data.vehicleName);

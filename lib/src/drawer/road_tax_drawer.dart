@@ -4,7 +4,7 @@ abstract class RoadTaxDrawer {
   ///  draw background image;
   ///
   /// default background is default template
-  Future<void> drawBackgroundImage(ByteData? byteData);
+  Future<void> drawBackgroundImage([ByteData? byteData]);
 
   /// draw vehicle name
   void drawVehicleName(String vehicleName);
