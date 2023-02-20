@@ -31,7 +31,7 @@ flutter:
   fonts:
     - family: PhetsarathOT
       fonts:
-        - asset: fonts/Phetsarath_OT.ttf
+        - asset: packages/lao_roadtax_eticker/fonts/Phetsarath_OT.ttf
     - family:  RoadTaxIcons
       fonts:
-       - asset: fonts/RoadTaxIcons.ttf
+       - asset: packages/lao_roadtax_eticker/fonts/RoadTaxIcons.ttf
