@@ -17,7 +17,7 @@ add `lao_roadtax_esticker` to `pubspec.yaml`
 lao_roadtax_esticker:<release>
 ```
 
-then add this fonts from this package to your project
+then add theses fonts from this package to your project
 
 ```yaml
   fonts:
