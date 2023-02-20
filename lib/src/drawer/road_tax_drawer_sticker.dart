@@ -176,6 +176,8 @@ class DrawRoadTaxSticker extends RoadTaxDrawer {
 
   @override
   void drawChassisNumber(String chassisNumber) {
+    final maxLayoutWidth = calScaleValue(x: 336, refactor: refactorX);
+
     final chassisNumberTextPainter = TextPainter(
       text: TextSpan(
         text: 'ເລກຖັງ: $chassisNumber',
@@ -185,11 +187,15 @@ class DrawRoadTaxSticker extends RoadTaxDrawer {
       ),
       textDirection: TextDirection.ltr,
     );
-    chassisNumberTextPainter.layout();
+    chassisNumberTextPainter.layout(minWidth: 0, maxWidth: maxLayoutWidth);
     chassisNumberTextPainter.paint(
       canvas,
       Offset(
-        calScaleValue(x: 377, refactor: refactorX),
+        dXCenter(
+          dx: calScaleValue(x: 377, refactor: refactorX),
+          maxLayoutWidth: maxLayoutWidth,
+          paintWidth: chassisNumberTextPainter.width,
+        ),
         calScaleValue(x: ((332 + 75) + 50), refactor: refactorY),
       ),
     );
