@@ -275,7 +275,7 @@ class DrawRoadTaxSticker extends RoadTaxDrawer {
       canvas,
       Offset(
         dXCenter(
-          dx: calScaleValue(x: 76, refactor: refactorX),
+          dx: calScaleValue(x: 72, refactor: refactorX),
           maxLayoutWidth: _rectWidth,
           paintWidth: provinceTextPainter.width,
         ),
@@ -303,7 +303,7 @@ class DrawRoadTaxSticker extends RoadTaxDrawer {
       canvas,
       Offset(
         dXCenter(
-          dx: calScaleValue(x: 76, refactor: refactorX),
+          dx: calScaleValue(x: 72, refactor: refactorX),
           maxLayoutWidth: _rectWidth,
           paintWidth: licenseTextPainter.width,
         ),
