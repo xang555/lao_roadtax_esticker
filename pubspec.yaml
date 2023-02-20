@@ -27,11 +27,3 @@ flutter:
   # To add assets to your package, add an assets section, like this:
   assets:
     - assets/
-
-  fonts:
-    - family: PhetsarathOT
-      fonts:
-        - asset: packages/lao_roadtax_eticker/fonts/Phetsarath_OT.ttf
-    - family:  RoadTaxIcons
-      fonts:
-       - asset: packages/lao_roadtax_eticker/fonts/RoadTaxIcons.ttf

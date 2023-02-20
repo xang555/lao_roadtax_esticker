@@ -8,6 +8,27 @@ Flutter package create lao road tax E-sticker
 
 >pull requests is welcome
 
+
+## Install
+
+add `lao_roadtax_esticker` to `pubspec.yaml`
+
+```yaml
+lao_roadtax_esticker:<release>
+``
+
+then add this fonts from this package to your project
+
+```yaml
+  fonts:
+    - family: PhetsarathOT
+      fonts:
+        - asset: packages/lao_roadtax_eticker/fonts/Phetsarath_OT.ttf
+    - family:  RoadTaxIcons
+      fonts:
+       - asset: packages/lao_roadtax_eticker/fonts/RoadTaxIcons.ttf
+```
+
 ## Usage
 
 ### **Using default template**
