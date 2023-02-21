@@ -203,6 +203,8 @@ class DrawRoadTaxSticker extends RoadTaxDrawer {
 
   @override
   void drawEngineDisplacement(String engineDisplacement) {
+    final maxWidthLayout = calScaleValue(x: 307, refactor: refactorX);
+
     final engineDisplacementTextPainter = TextPainter(
       text: TextSpan(
         children: [
@@ -222,11 +224,18 @@ class DrawRoadTaxSticker extends RoadTaxDrawer {
       ),
       textDirection: TextDirection.ltr,
     );
-    engineDisplacementTextPainter.layout();
+    engineDisplacementTextPainter.layout(
+      minWidth: 0,
+      maxWidth: maxWidthLayout,
+    );
     engineDisplacementTextPainter.paint(
       canvas,
       Offset(
-        calScaleValue(x: 490, refactor: refactorX),
+        dXCenter(
+          dx: calScaleValue(x: 490, refactor: refactorX),
+          maxLayoutWidth: maxWidthLayout,
+          paintWidth: engineDisplacementTextPainter.width,
+        ),
         calScaleValue(x: (332 + 75), refactor: refactorY),
       ),
     );
