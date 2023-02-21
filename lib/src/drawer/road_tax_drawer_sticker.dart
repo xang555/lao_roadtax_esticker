@@ -196,7 +196,7 @@ class DrawRoadTaxSticker extends RoadTaxDrawer {
           maxLayoutWidth: maxLayoutWidth,
           paintWidth: chassisNumberTextPainter.width,
         ),
-        calScaleValue(x: (370 + 42 * 2), refactor: refactorY),
+        calScaleValue(x: ((332 + 75) + 50), refactor: refactorY),
       ),
     );
   }
