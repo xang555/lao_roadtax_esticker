@@ -176,7 +176,7 @@ class DrawRoadTaxSticker extends RoadTaxDrawer {
 
   @override
   void drawChassisNumber(String chassisNumber) {
-    final maxLayoutWidth = calScaleValue(x: 336, refactor: refactorX);
+    final maxLayoutWidth = calScaleValue(x: 358, refactor: refactorX);
 
     final chassisNumberTextPainter = TextPainter(
       text: TextSpan(
