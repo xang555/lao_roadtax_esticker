@@ -182,7 +182,7 @@ class DrawRoadTaxSticker extends RoadTaxDrawer {
       text: TextSpan(
         text: 'ເລກຖັງ: $chassisNumber',
         style: textStyle.copyWith(
-          fontSize: _normalFont,
+          fontSize: _normalFont - calScaleValue(x: 5, refactor: refactorY),
         ),
       ),
       textDirection: TextDirection.ltr,
