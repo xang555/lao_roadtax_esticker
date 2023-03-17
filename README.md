@@ -202,7 +202,7 @@ if this package useful you can donate me by
 
 **Bank**
 
-![LaoQR](images/laoQR.png)
+<img src="images/laoQR.png" width="50%" height="50%">
 
 **Binance Pay**
 
