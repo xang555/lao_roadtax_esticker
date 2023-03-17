@@ -200,14 +200,10 @@ Future<ByteData?> _createStickerFromLib() async {
 
 if this package useful you can donate me by
 
+**Bank**
+
+![LaoQR](images/laoQR.png)
+
 **Binance Pay**
 
 <img src="images/binance_pay.png" width="50%" height="50%">
-
-**JDB**
-
-[Pay for me](https://jdbbank.com.la/yespay/00020101021138680016A00526628466257701083217041802030010325NUV4730709ZKM17G1UB3ANZJ052045251530341854130000000000.005802LA6009Vientiane63042456)
-
-**BCEL**
-
-[Pay for me](onepay://qr/00020101021138680016A00526628466257701083217041802030010325NUV4730709ZKM17G1UB3ANZJ052045251530341854130000000000.005802LA6009Vientiane63042456)
