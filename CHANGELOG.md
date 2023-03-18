@@ -10,3 +10,7 @@
 
 * Fix readme
 * Fix image size
+
+## 1.0.3
+
+* Fix pubspec.yaml
