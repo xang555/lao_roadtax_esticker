@@ -4,7 +4,7 @@
 
 Flutter package create lao road tax E-sticker
 
-![sticker](images/sticker.jpeg)
+![sticker](https://github.com/xang555/lao_roadtax_esticker/blob/master/images/sticker.jpeg)
 
 >pull requests is welcome
 
@@ -202,8 +202,8 @@ if this package useful you can donate me by
 
 **Bank**
 
-<img src="images/laoQR.png" width="50%" height="50%">
+<img src="https://github.com/xang555/lao_roadtax_esticker/blob/master/images/laoQR.png" width="50%" height="50%">
 
 **Binance Pay**
 
-<img src="images/binance_pay.png" width="50%" height="50%">
+<img src="https://github.com/xang555/lao_roadtax_esticker/blob/master/images/binance_pay.png" width="50%" height="50%">
