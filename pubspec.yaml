@@ -1,6 +1,6 @@
 name: lao_roadtax_eticker
 description: A Flutter package for create lao road tax sticker.
-version: 1.0.1
+version: 1.0.2
 homepage: "https://laoitdev.com"
 
 environment:

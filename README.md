@@ -202,8 +202,8 @@ if this package useful you can donate me by
 
 **Bank**
 
-<img src="https://github.com/xang555/lao_roadtax_esticker/blob/master/images/laoQR.png" width="50%" height="50%">
+![laoQR](https://github.com/xang555/lao_roadtax_esticker/blob/master/images/laoQR.png)
 
 **Binance Pay**
 
-<img src="https://github.com/xang555/lao_roadtax_esticker/blob/master/images/binance_pay.png" width="50%" height="50%">
+![binance pay](https://github.com/xang555/lao_roadtax_esticker/blob/master/images/binance_pay.png)
