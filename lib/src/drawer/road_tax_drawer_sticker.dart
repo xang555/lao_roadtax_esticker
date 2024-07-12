@@ -114,40 +114,42 @@ class DrawRoadTaxSticker extends RoadTaxDrawer {
   Future<void> drawBarcode(String data) async {
     try {
       final barcodeWidth = calScaleValue(x: 282, refactor: refactorX).toInt();
-      final barcodeHight = calScaleValue(x: 70, refactor: refactorY).toInt();
+      final barcodeHeight = calScaleValue(x: 70, refactor: refactorY).toInt();
 
-      final image = img.Image(barcodeWidth, barcodeHight);
+      // Create an empty image with transparent background
+      final image = img.Image(width: barcodeWidth, height: barcodeHeight);
+      img.fill(
+        image,
+        color: image.getColor(255, 255, 255, 0),
+      ); // Fully transparent background
 
-      img.fill(image, img.getColor(0, 0, 0, 0));
-
+      // Draw the barcode on the image
       barcode_img.drawBarcode(
         image,
         barcode_img.Barcode.code128(),
         data,
       );
 
-      final codec = await ui.instantiateImageCodec(
-        Uint8List.fromList(
-          img.encodePng(image),
-        ),
-      );
+      // Encode the image to PNG format
+      final pngBytes = img.encodePng(image);
 
+      // Create an image codec
+      final codec =
+          await ui.instantiateImageCodec(Uint8List.fromList(pngBytes));
+
+      // Get the frame from the codec
+      var frame = await codec.getNextFrame();
+
+      // Calculate positions
       final dxBarcode = calScaleValue(x: 727, refactor: refactorX);
       final dyBarcode =
-          ((calScaleValue(x: 124, refactor: refactorY) + _rectConner.dy) +
-              calScaleValue(x: 24, refactor: refactorY));
+          (calScaleValue(x: 124, refactor: refactorY) + _rectConner.dy) +
+              calScaleValue(x: 24, refactor: refactorY);
 
-      var frame = await codec.getNextFrame();
-      canvas.drawImage(
-        frame.image,
-        Offset(
-          dxBarcode,
-          dyBarcode,
-        ),
-        Paint(),
-      );
+      // Draw the image on the canvas
+      canvas.drawImage(frame.image, Offset(dxBarcode, dyBarcode), Paint());
 
-      // draw barcode text
+      // Draw barcode text
       final barcodeTextPainter = TextPainter(
         text: TextSpan(
           text: data,
@@ -157,6 +159,7 @@ class DrawRoadTaxSticker extends RoadTaxDrawer {
         ),
         textDirection: TextDirection.ltr,
       );
+
       barcodeTextPainter.layout(minWidth: 0, maxWidth: barcodeWidth.toDouble());
       barcodeTextPainter.paint(
         canvas,
